@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de Ventas de Supermercados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Consumir API de Ventas de Supermercados</h1>
+        <p>Prueba los endpoints de tu API.</p>
+    </header>
+
+    <main>
+        <section class="api-consumer">
+            <h2>Prueba de Endpoints</h2>
+
+            <div class="form-container">
+                <form id="apiQueryForm">
+                    <div class="form-group">
+                        <label for="endpoint">Selecciona una Acción:</label>
+                        <select id="endpoint">
+                            <option value="">-- Elige una opción --</option>
+                            <option value="GET_ALL">GET /api/ventas (Obtener todo)</option>
+                            <option value="GET_BY_DATE">GET /api/ventas/fecha/:fecha</option>
+                            <option value="GET_BY_RANGE">GET /api/ventas/rango_fecha</option>
+                            <option value="POST">POST /api/ventas (Agregar Venta)</option>
+                            <option value="PUT">PUT /api/ventas/:id (Actualizar Venta)</option>
+                            <option value="DELETE">DELETE /api/ventas/:id (Eliminar Venta)</option>
+                        </select>
+                    </div>
+
+                    <div id="getFechaParams" class="hidden form-group">
+                        <label for="getFecha">Fecha (AAAA-MM-DD):</label>
+                        <input type="text" id="getFecha" class="param-input" placeholder="Ej: 2024-01-15">
+                    </div>
+
+                    <div id="rangoFechaParams" class="hidden form-group">
+                        <label for="fechaDesde">Desde (AAAA-MM-DD):</label>
+                        <input type="text" id="fechaDesde" class="param-input" placeholder="Ej: 2024-01-01">
+                        <label for="fechaHasta">Hasta (AAAA-MM-DD):</label>
+                        <input type="text" id="fechaHasta" class="param-input" placeholder="Ej: 2024-01-31">
+                    </div>
+                    
+                    <div id="addVentaParams" class="hidden form-group">
+                        <label for="addFecha">Fecha (AAAA-MM-DD):</label>
+                        <input type="text" id="addFecha" class="param-input" placeholder="Ej: 2024-06-11">
+                        <label for="addAlimento">Producto:</label>
+                        <select id="addAlimento" class="param-input"></select>
+                        <label for="addCantidad">Cantidad:</label>
+                        <input type="number" id="addCantidad" placeholder="Ej: 50" class="param-input">
+                    </div>
+
+                    <div id="updateVentaParams" class="hidden form-group">
+                        <label for="updateId">ID de la Venta:</label>
+                        <input type="number" id="updateId" placeholder="Ej: 1" class="param-input">
+                        <label for="updateCantidad">Nueva Cantidad:</label>
+                        <input type="number" id="updateCantidad" placeholder="Ej: 75" class="param-input">
+                    </div>
+
+                    <div id="deleteVentaParams" class="hidden form-group">
+                        <label for="deleteId">ID de la Venta a Eliminar:</label>
+                        <input type="number" id="deleteId" placeholder="Ej: 1" class="param-input">
+                    </div>
+
+                    <button type="submit">Enviar Solicitud</button>
+                </form>
+            </div>
+
+            <div class="result-container">
+                <h3>Respuesta de la API</h3>
+                <pre id="apiResult">Aquí se mostrará la respuesta de la API...</pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>API de Ventas de Supermercados - NodeJS con Express y SQLite</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
